@@ -1,0 +1,50 @@
+***Selenium WebDriver***
+Handling all kinds of web elements of web applications:
+Drop-down menus, date pickers, login forms, paginated web tables, 
+navigating from tab to tab, checking links on page, gathering the data, etc...
+Most of the tests are created in a Page object model manner, and sometimes combinated with
+backend testing using Rest Assured.
+TestNG is used for runs, assertions, and to provide data from Excel or another source.
+Code is written in Java, executed locally, as a testng suite, maven test, and remotely in Jenkins.
+Extent report are setup for creation of html reports.
+
+***Rest Assured***
+
+Testing and executing wariety of interactions with rest apis, beside main methods 
+GET, POST, PUT,PATCH, DELETE, different Authentification scenarios and types are executed
+Basic, OAuth1, OAuth2. 
+Assertion on all response elements, Headers, Status code, Content type, Time etc...
+Serialization and deserialization of json data/Java objects, sending data to other requests.
+Code are written in separate packages and classes.
+TestNG is used for runs, assertions, and to provide data from Excel or another source.
+Code is written in Java, executed locally, as a testng suite, maven test, and remotely in Jenkins.
+Extent report are setup for creation of html reports.
+
+***SQL***
+
+Mainly mySQL including table creations, agregate functions, queries, subqueris, table joining etc.
+
+***Playwright***
+
+Using for frontend and backend interactions and tests, 
+mainly basic login forms, navigation true the web aplication gathering data.
+Rest apis basic request, parsing json response.
+Code are written in Javascript.
+
+***Postman***
+
+Testing and automation different kinds of rest apis, making loop chaining runs,
+writing pre-script and post-script setups, assertions, creating data etc.
+Making assertions and test for variety of rest api components.
+Running collections remotely in newman and in Jenkins.
+
+***Jenkins***
+
+Setup and Running Maven builds (Selenium, Rest Assured)
+Setup and Running Postman collection using newman
+
+
+
+
+
+

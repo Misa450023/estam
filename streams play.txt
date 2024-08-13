@@ -1,0 +1,45 @@
+package dakleFo;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.testng.annotations.Test;
+
+public class Foo {
+	
+	
+@Test	
+public void foco() {
+	
+//create array	
+String [] exCountries={"Krakosia","Rhodesia","Zair"};
+//convert array to List
+List<String> countries = Arrays.asList(exCountries);
+
+
+List<String> countriesWithZ=countries.stream().filter(e->e.contains("Z"))
+.collect(Collectors.toList());
+
+List<String> countriesMore5=countries.stream().filter(el->el.length()>5)
+.collect(Collectors.toList());
+
+Long dist=countries.stream().distinct().count();
+
+boolean b=countries.stream().anyMatch(el->el.contains("Za"));
+
+List<String> c1=countries.stream().map(el->el+" Country")
+.collect(Collectors.toList());
+
+List<Integer> c2 = countries.stream().map(el->el.length())
+.collect(Collectors.toList());
+
+int i1=c2.stream().reduce(0, (a, c) -> a + c);
+
+
+System.out.println(i1);
+
+}
+	
+
+}

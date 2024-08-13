@@ -1,0 +1,62 @@
+Running Maven build using directory
+
+Prereq
+1. Maven, Java installed on local machine
+2. Maven plugin installed on jenkins
+3. Java path setup on jenkins
+- menage jenkins
+- tools
+- JDK installations name set=current version of java , in JAVA_HOME field put path to java instalation 
+
+Steps:
+1. new item, freestyle project
+2. build steps, - invoke top level maven targets, in Goals put maven command for exp "clean test"
+3. Press advanced in field POM, put your pom.xml file and be awere of location
+4. Save and build
+
+***********************************************************************
+ Running Maven build using .bat file
+
+Prerequisites is the same as way above!
+
+1. Create Run.bat file in directory of project
+- Create notepad file saveType all files, with text: mvn clean test save as Run.bat
+2. new item, freestyle project
+3. You should see header as 'Advanced Project Options' and with a button 'Advanced'.
+ Now Click on "Advanced" option which will display multiple options.
+Select 'Use custom workspace' and specify your project location (workspace directory) 
+4. Build steps use execute windows batch command
+5. command field put Run.bat 
+6. Save and build
+
+
+Runninng Postman collection on jenksins using link
+
+Prereq:
+1. newman installed on system
+2. nodejs plugin installed on jenkins
+
+steps:
+1. Provide Node & npm bin/ folder to PATH 
+2. windows batch command newman run <Colection token> --disable-unicode 
+
+
+running postman collection with json file
+
+Prereq:
+1. newman installed on system
+2. nodejs plugin installed on jenkins
+
+
+steps:
+1. Provide Node & npm bin/ folder to PATH 
+2. windows batch command cd <directory of json file>  / new line/ newman run <file>.json --disable-unicode 
+--disable-unicode is to jenkins give clear text
+
+
+
+
+
+
+
+

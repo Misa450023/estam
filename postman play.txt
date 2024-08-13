@@ -1,0 +1,121 @@
+var pokemon = [];
+
+var nameList = ['Time','pahir','Future','Dev','dalayan','daleman','amir',
+                'dzej','emran','jakub','perhan','zef','aladin',
+                'gzim','Sharp','Dead','Mew','Chuckle','Bubba','Bubble','zulfikar','nehru','Extreme','Multi','kamber','Ultimate','kazan','hasim','rama','jasin','jumko'];
+
+var finalName = nameList[Math.floor( Math.random() * nameList.length )];
+        
+var charList = ['s2zs','3aaa','z3sd','55vc',
+                'zxc5','sd4','rtf4','45f','z5ef','sd6a',
+                'zx6c','d4s','g5df','df6dd','dd3d'];
+
+
+
+
+pm.sendRequest("https://pokeapi.co/api/v2/pokemon?limit=200", function (err, response) {
+
+const resp=response.json();
+for(var a=0;a<200;a++){
+pokemon.push(resp.results[a].name);
+}
+pm.collectionVariables.set("pokemonList",pokemon);
+});
+
+var pokemons=pm.collectionVariables.get("pokemonList");
+console.log("**** "+pokemons.length)
+
+var pokemonName=pokemons[Math.floor( Math.random() * pokemons.length )];
+
+var char1 = charList[Math.floor( Math.random() * charList.length )];
+var char2 = charList[Math.floor( Math.random() * charList.length )];
+var char3 = charList[Math.floor( Math.random() * charList.length )];
+var finalPassword=char1+char2+char3;
+var id = Math.random() * 200;
+var finalId=Math.trunc(id);
+
+
+pm.collectionVariables.set("pokemonName", pokemonName);
+pm.collectionVariables.set("username", finalName);
+pm.collectionVariables.set("password", finalPassword);
+pm.collectionVariables.set("id", finalId);
+
+
+11.08.24
+
+
+const baseUrl='https://simple-books-api.glitch.me';
+var navBooks=[];
+var avBooks=[];
+var names=['jamezdin','jamak','sadam','ziat','amir','ali','hasim'];
+
+pm.sendRequest(baseUrl+"/books", function (err, response) {
+const resp=response.json();
+for(var a=0;a<resp.length;a++){
+    if(resp[a].available===true){
+        avBooks.push(resp[a].id);
+    }
+    else{
+        navBooks.push(resp[a].id);
+    }
+}
+pm.collectionVariables.set('navBooks',navBooks);
+pm.collectionVariables.set('avBooks',avBooks);
+
+
+});
+
+var requestBody={
+    clientName:"zef",
+    clientEmail:"zef"+String(Math.floor(Math.random()*5000))+"@bu.com"
+}
+
+console.log(requestBody.clientEmail)
+
+var myRequest={
+    url: baseUrl+"/api-clients/",
+    method:"POST",
+    header:{"Content-Type":"application/json"},
+    body:{
+        mode:"raw",
+        raw: requestBody
+    }
+
+}
+
+pm.sendRequest(myRequest,(error,response)=>{
+
+var resp=response.json();
+pm.collectionVariables.set('token',resp.accessToken);
+})
+
+var requestBody2={
+    bookId:pm.collectionVariables.get('avBooks')[(Math.floor(Math.random()*pm.collectionVariables.get('avBooks').length))],
+    customerName:"zef"+String(Math.floor(Math.random()*5000))
+}
+
+var myRequest2={
+    url: baseUrl+"/orders",
+    method:"POST",
+    header:{"Content-Type":"application/json",
+    Authorization: 'Bearer '+pm.collectionVariables.get('token')
+    },
+    body:{
+        mode:"raw",
+        raw: requestBody2
+    }
+}
+pm.sendRequest(myRequest2,(error,response)=>{
+
+var resp=response.json();
+console.log(resp);
+})
+
+
+
+
+
+
+
+
+

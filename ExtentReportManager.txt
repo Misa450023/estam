@@ -1,0 +1,25 @@
+package generics;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+public class ExtentManager {
+
+  public static ExtentHtmlReporter htmlReporter;
+  public static ExtentReports extent;
+  public static ExtentTest test;
+  public static String path="C:\\Users\\zikaz\\OneDrive\\Desktop\\projects\\JavaAdvanceExercise\\target\\report42.html";
+
+public static void setExtent() {
+	
+htmlReporter = new ExtentHtmlReporter(path);
+extent = new ExtentReports();
+extent.attachReporter(htmlReporter);
+}
+
+public static void endReport() {
+	
+extent.flush();
+  }
+}
